@@ -1,0 +1,3 @@
+[workspace]
+
+members = ["base_storage", "grpc_bridge"]
