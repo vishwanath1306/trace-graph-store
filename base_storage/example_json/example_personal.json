@@ -1,9 +1,0 @@
-{
-
-    "Name" : "John",
-    "Goal": "Research",
-    "Visited": ["SFO", "NYC", "ATL", "BOL"],
-    "Age": 26,
-    "Extra": null
-
-}
