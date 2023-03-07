@@ -83,3 +83,20 @@ pub struct Personal{
     pub visited: Vec<String>,
     pub extra: Option<String>
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Personal2{
+    pub name: String,
+    pub goal: String,
+    pub age: u8,
+    pub visited: Vec<String>,
+    pub extra: Option<String>,
+    pub address: Address
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Address{
+    pub street: String, 
+    pub state: String, 
+    pub city: String
+}
