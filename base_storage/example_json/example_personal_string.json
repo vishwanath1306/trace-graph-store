@@ -1,0 +1,7 @@
+{
+    "name" : "John",
+    "goal": "Research",
+    "visited": ["SFO", "NYC", "ATL", "BOL"],
+    "age": 26,
+    "extra": "Hello World"
+}
