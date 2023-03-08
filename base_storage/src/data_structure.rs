@@ -1,5 +1,4 @@
-use serde::{Serialize, Deserialize};
-
+use serde::{de, Serialize, Deserialize, Deserializer};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum TagValue {
@@ -27,7 +26,25 @@ pub struct Tags{
     #[serde(rename(deserialize = "type"))]
     pub type_: String,
 
-    pub value: TagValue,
+    #[serde(deserialize_with = "value_to_string")]
+    pub value: String,
+}
+
+fn value_to_string<'de, D>(deserializer: D) -> Result<String, D::Error>
+where
+    D: de::Deserializer<'de>{
+        let s: TagValue = de::Deserialize::deserialize(deserializer)?;
+        let result = match s {
+            TagValue::Float(value) => {
+                Ok(value.to_string())
+            }, 
+
+            TagValue::String(value) => {
+                Ok(value)
+            }
+        };
+        result
+
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
