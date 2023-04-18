@@ -1,4 +1,6 @@
 use serde::{de, Serialize, Deserialize, Deserializer};
+use postgres::Client;
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum TagValue {
@@ -116,4 +118,13 @@ pub struct Address{
     pub street: String, 
     pub state: String, 
     pub city: String
+}
+
+#[derive(Debug, Clone)]
+pub struct DBConnection{
+    pub host: String, 
+    pub port: String, 
+    pub database: String, 
+    pub username: String, 
+    pub password: String
 }
